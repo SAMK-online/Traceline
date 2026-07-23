@@ -13,8 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Tax Workspace",
-  description: "A collaborative tax workspace for CPA firms and their clients.",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  ),
+  title: "Traceline | AI tax work with a visible trail",
+  description:
+    "A collaborative AI tax workspace where every number links to its source, every suggestion shows its evidence, and every client knows what happens next.",
+  openGraph: {
+    url: "/",
+    title: "Traceline",
+    description: "AI tax work with a visible trail.",
+    images: ["/images/traceline-hero.png"],
+  },
 };
 
 export default function RootLayout({

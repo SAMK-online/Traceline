@@ -1,8 +1,8 @@
 # AI Tax Workspace Prototype
 
 A Vercel-ready interaction prototype for a shared CPA and client tax
-workspace. The current milestone contains the application foundation and mock
-data boundary only. Product screens intentionally have not been started yet.
+workspace. The current milestone includes the public Traceline landing page,
+application foundation, and mock data boundary.
 
 ## Stack
 
@@ -19,6 +19,9 @@ data boundary only. Product screens intentionally have not been started yet.
 npm install
 npm run dev
 ```
+
+Set `NEXT_PUBLIC_SITE_URL` to the deployed origin so canonical Open Graph
+metadata resolves to the production domain.
 
 Useful checks:
 
@@ -79,7 +82,8 @@ the audit when the next patched Next.js release is available.
 
 | Area | Real in the prototype | Simulated |
 | --- | --- | --- |
-| App foundation | Next.js routing foundation, strict TypeScript, Tailwind, shadcn components, Zustand and Motion dependencies | No product routes or shell yet |
+| App foundation | Responsive Traceline landing page, Next.js routing foundation, strict TypeScript, Tailwind, shadcn components, Zustand and Motion dependencies | No authenticated product shell yet |
+| Landing page | Full responsive layout, generated hero asset, in-page product preview, anchor navigation, and production metadata | Product-preview controls are illustrative and CTAs remain on the landing page |
 | Data access | Typed async repository, filtering, pagination, relationship assembly, and integrity validation | All records are in-memory TypeScript fixtures |
 | Users and roles | Six role types, explicit permissions, staff/client workspace contexts, and one dual-context employee | No authentication, authorization server, sessions, or identity provider |
 | Tax returns | One shared status vocabulary and real cross-entity references | Filing status changes are not persisted outside the browser |
