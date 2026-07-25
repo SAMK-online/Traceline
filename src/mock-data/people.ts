@@ -1,0 +1,280 @@
+import {
+  CLIENT_PERMISSIONS,
+  STAFF_PERMISSIONS,
+} from "@/mock-data/constants"
+import type { Client, Firm, User } from "@/mock-data/types"
+
+export const firms: Firm[] = [
+  {
+    id: "firm-hawthorne-rowe",
+    name: "Hawthorne & Rowe CPAs",
+    shortName: "H&R",
+  },
+]
+
+export const users: User[] = [
+  {
+    id: "user-mateo-ruiz",
+    identityId: "identity-mateo-ruiz",
+    name: "Mateo Ruiz",
+    initials: "MR",
+    role: "tax-preparer",
+    avatarUrl: "/avatars/mateo-ruiz.jpg",
+    firmId: "firm-hawthorne-rowe",
+    clientId: "client-mateo-ruiz",
+    accessContexts: [
+      {
+        id: "context-mateo-staff",
+        label: "Hawthorne & Rowe",
+        mode: "staff",
+        role: "tax-preparer",
+        firmId: "firm-hawthorne-rowe",
+        permissions: STAFF_PERMISSIONS["tax-preparer"],
+      },
+      {
+        id: "context-mateo-personal",
+        label: "My personal return",
+        mode: "client",
+        role: "individual-taxpayer",
+        clientId: "client-mateo-ruiz",
+        permissions: CLIENT_PERMISSIONS,
+      },
+    ],
+  },
+  {
+    id: "user-priya-nair",
+    identityId: "identity-priya-nair",
+    name: "Priya Nair",
+    initials: "PN",
+    role: "reviewer",
+    avatarUrl: "/avatars/priya-nair.jpg",
+    firmId: "firm-hawthorne-rowe",
+    accessContexts: [
+      {
+        id: "context-priya-staff",
+        label: "Hawthorne & Rowe",
+        mode: "staff",
+        role: "reviewer",
+        firmId: "firm-hawthorne-rowe",
+        permissions: STAFF_PERMISSIONS.reviewer,
+      },
+    ],
+  },
+  {
+    id: "user-alice-chen",
+    identityId: "identity-alice-chen",
+    name: "Alice Chen",
+    initials: "AC",
+    role: "tax-preparer",
+    avatarUrl: "/avatars/alice-chen.jpg",
+    firmId: "firm-hawthorne-rowe",
+    accessContexts: [
+      {
+        id: "context-alice-staff",
+        label: "Hawthorne & Rowe",
+        mode: "staff",
+        role: "tax-preparer",
+        firmId: "firm-hawthorne-rowe",
+        permissions: STAFF_PERMISSIONS["tax-preparer"],
+      },
+    ],
+  },
+  {
+    id: "user-jordan-brooks",
+    identityId: "identity-jordan-brooks",
+    name: "Jordan Brooks",
+    initials: "JB",
+    role: "firm-administrator",
+    avatarUrl: "/avatars/jordan-brooks.jpg",
+    firmId: "firm-hawthorne-rowe",
+    accessContexts: [
+      {
+        id: "context-jordan-admin",
+        label: "Hawthorne & Rowe",
+        mode: "staff",
+        role: "firm-administrator",
+        firmId: "firm-hawthorne-rowe",
+        permissions: STAFF_PERMISSIONS["firm-administrator"],
+      },
+    ],
+  },
+  {
+    id: "user-sam-ellis",
+    identityId: "identity-sam-ellis",
+    name: "Sam Ellis",
+    initials: "SE",
+    role: "seasonal-staff",
+    avatarUrl: "/avatars/sam-ellis.jpg",
+    firmId: "firm-hawthorne-rowe",
+    accessContexts: [
+      {
+        id: "context-sam-seasonal",
+        label: "Hawthorne & Rowe",
+        mode: "staff",
+        role: "seasonal-staff",
+        firmId: "firm-hawthorne-rowe",
+        permissions: STAFF_PERMISSIONS["seasonal-staff"],
+      },
+    ],
+  },
+  {
+    id: "user-maya-thompson",
+    identityId: "identity-maya-thompson",
+    name: "Maya Thompson",
+    initials: "MT",
+    role: "individual-taxpayer",
+    avatarUrl: "/avatars/maya-thompson.jpg",
+    clientId: "client-maya-thompson",
+    accessContexts: [
+      {
+        id: "context-maya-client",
+        label: "My tax account",
+        mode: "client",
+        role: "individual-taxpayer",
+        clientId: "client-maya-thompson",
+        permissions: CLIENT_PERMISSIONS,
+      },
+    ],
+  },
+  {
+    id: "user-elena-park",
+    identityId: "identity-elena-park",
+    name: "Elena Park",
+    initials: "EP",
+    role: "business-owner",
+    avatarUrl: "/avatars/elena-park.jpg",
+    clientId: "client-parkside-studio",
+    accessContexts: [
+      {
+        id: "context-elena-business",
+        label: "Parkside Studio LLC",
+        mode: "client",
+        role: "business-owner",
+        clientId: "client-parkside-studio",
+        permissions: CLIENT_PERMISSIONS,
+      },
+    ],
+  },
+  {
+    id: "user-devin-foster",
+    identityId: "identity-devin-foster",
+    name: "Devin Foster",
+    initials: "DF",
+    role: "individual-taxpayer",
+    avatarUrl: "/avatars/devin-foster.jpg",
+    clientId: "client-devin-foster",
+    accessContexts: [
+      {
+        id: "context-devin-client",
+        label: "My tax account",
+        mode: "client",
+        role: "individual-taxpayer",
+        clientId: "client-devin-foster",
+        permissions: CLIENT_PERMISSIONS,
+      },
+    ],
+  },
+  {
+    id: "user-nina-patel",
+    identityId: "identity-nina-patel",
+    name: "Nina Patel",
+    initials: "NP",
+    role: "business-owner",
+    avatarUrl: "/avatars/nina-patel.jpg",
+    clientId: "client-northstar-manufacturing",
+    accessContexts: [
+      {
+        id: "context-nina-business",
+        label: "Northstar Manufacturing",
+        mode: "client",
+        role: "business-owner",
+        clientId: "client-northstar-manufacturing",
+        permissions: CLIENT_PERMISSIONS,
+      },
+    ],
+  },
+]
+
+export const clients: Client[] = [
+  {
+    id: "client-maya-thompson",
+    kind: "individual",
+    displayName: "Maya Thompson",
+    legalName: "Maya Elise Thompson",
+    primaryContactUserId: "user-maya-thompson",
+    taxReturnIds: ["return-maya-2025"],
+    onboarding: {
+      status: "complete",
+      completedStepIds: [
+        "confirm-profile",
+        "connect-income",
+        "upload-documents",
+        "review-open-items",
+      ],
+    },
+  },
+  {
+    id: "client-parkside-studio",
+    kind: "business",
+    displayName: "Parkside Studio",
+    legalName: "Parkside Studio LLC",
+    primaryContactUserId: "user-elena-park",
+    taxReturnIds: ["return-parkside-2025"],
+    onboarding: {
+      status: "complete",
+      completedStepIds: [
+        "confirm-business",
+        "invite-bookkeeper",
+        "connect-books",
+        "upload-documents",
+      ],
+    },
+  },
+  {
+    id: "client-mateo-ruiz",
+    kind: "individual",
+    displayName: "Mateo Ruiz",
+    legalName: "Mateo Luis Ruiz",
+    primaryContactUserId: "user-mateo-ruiz",
+    taxReturnIds: ["return-mateo-2025"],
+    onboarding: {
+      status: "complete",
+      completedStepIds: [
+        "confirm-profile",
+        "connect-income",
+        "upload-documents",
+        "review-open-items",
+      ],
+    },
+  },
+  {
+    id: "client-devin-foster",
+    kind: "individual",
+    displayName: "Devin Foster",
+    legalName: "Devin James Foster",
+    primaryContactUserId: "user-devin-foster",
+    taxReturnIds: ["return-devin-2025"],
+    onboarding: {
+      status: "in-progress",
+      completedStepIds: ["confirm-profile"],
+      currentStepId: "connect-income",
+    },
+  },
+  {
+    id: "client-northstar-manufacturing",
+    kind: "business",
+    displayName: "Northstar Manufacturing",
+    legalName: "Northstar Manufacturing, Inc.",
+    primaryContactUserId: "user-nina-patel",
+    taxReturnIds: ["return-northstar-2025"],
+    onboarding: {
+      status: "complete",
+      completedStepIds: [
+        "confirm-business",
+        "invite-bookkeeper",
+        "connect-books",
+        "upload-documents",
+      ],
+    },
+  },
+]
