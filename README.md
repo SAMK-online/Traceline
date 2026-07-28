@@ -82,8 +82,10 @@ the audit when the next patched Next.js release is available.
 
 | Area | Real in the prototype | Simulated |
 | --- | --- | --- |
-| App foundation | Responsive Traceline landing page, Next.js routing foundation, strict TypeScript, Tailwind, shadcn components, Zustand and Motion dependencies | No authenticated product shell yet |
-| Landing page | Full responsive layout, generated hero asset, in-page product preview, anchor navigation, and production metadata | Product-preview controls are illustrative and CTAs remain on the landing page |
+| App foundation | Responsive Traceline landing page, role-aware product shell, strict TypeScript, Tailwind, shadcn components, Zustand and Motion dependencies | No authentication or server-persisted sessions |
+| Landing page | Full responsive layout, generated hero asset, in-page product preview, production metadata, and links into the actual workspace | Marketing content and product screenshots remain fabricated |
+| Product workspace | Functional role/context switcher, urgency-ranked staff dashboard, client next-action home, team-load view, and return navigation | Role selection and mutations reset when the browser is refreshed |
+| Return review | Split-pane field/source navigation, exact source highlighting, inspectable math and AI reasoning, local verification, and local correction | Edits are browser-only and document pages are structured mock blocks |
 | Data access | Typed async repository, filtering, pagination, relationship assembly, and integrity validation | All records are in-memory TypeScript fixtures |
 | Users and roles | Six role types, explicit permissions, staff/client workspace contexts, and one dual-context employee | No authentication, authorization server, sessions, or identity provider |
 | Tax returns | One shared status vocabulary and real cross-entity references | Filing status changes are not persisted outside the browser |

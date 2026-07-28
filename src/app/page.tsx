@@ -14,8 +14,9 @@ import {
   Search,
   ShieldCheck,
   Sparkles,
-  Waypoints,
 } from "lucide-react";
+
+import { TracelineBrand } from "@/components/traceline-brand";
 
 const navItems = [
   { label: "Product", href: "#product" },
@@ -26,6 +27,7 @@ const navItems = [
 
 const fieldRows = [
   {
+    id: "field-maya-wages",
     form: "W-2",
     label: "Wages, salaries, tips",
     value: "$124,500",
@@ -33,6 +35,7 @@ const fieldRows = [
     tone: "verified",
   },
   {
+    id: "field-maya-interest",
     form: "1099-INT",
     label: "Taxable interest",
     value: "$842.17",
@@ -40,6 +43,7 @@ const fieldRows = [
     tone: "review",
   },
   {
+    id: "field-maya-capital-gain",
     form: "Schedule D",
     label: "Net short-term gain",
     value: "$3,600",
@@ -47,25 +51,6 @@ const fieldRows = [
     tone: "calculated",
   },
 ];
-
-function Brand({ inverse = false }: { inverse?: boolean }) {
-  return (
-    <span className="inline-flex items-center gap-2.5">
-      <span
-        className={`grid size-8 place-items-center rounded-[6px] ${
-          inverse
-            ? "bg-[#d8f3df] text-[#173d2a]"
-            : "bg-[#1f5c3f] text-white"
-        }`}
-      >
-        <Waypoints aria-hidden="true" className="size-[18px]" strokeWidth={2} />
-      </span>
-      <span className="text-[1.08rem] font-semibold leading-none">
-        Traceline
-      </span>
-    </span>
-  );
-}
 
 function WorkspacePreview() {
   return (
@@ -204,13 +189,13 @@ function WorkspacePreview() {
                     <p className="text-sm font-semibold tabular-nums text-[#202a24]">
                       {field.value}
                     </p>
-                    <button
-                      type="button"
+                    <Link
+                      href={`/workspace/returns/return-maya-2025?field=${field.id}`}
                       className="mt-1 inline-flex items-center gap-1 text-[10px] font-semibold text-[#286345]"
                     >
                       View source
                       <ChevronRight aria-hidden="true" className="size-3" />
-                    </button>
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -308,7 +293,7 @@ export default function Home() {
       <header className="absolute inset-x-0 top-0 z-30 text-white">
         <div className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between border-b border-white/20 px-5 sm:px-8 lg:px-10">
           <Link href="#top" aria-label="Traceline home">
-            <Brand inverse />
+            <TracelineBrand inverse />
           </Link>
 
           <nav
@@ -327,7 +312,7 @@ export default function Home() {
           </nav>
 
           <Link
-            href="#product"
+            href="/workspace"
             className="inline-flex h-9 items-center gap-2 rounded-[5px] border border-white/30 bg-white/10 px-3 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#183c2b] sm:px-4"
           >
             <span className="hidden sm:inline">Explore workspace</span>
@@ -367,14 +352,14 @@ export default function Home() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
-                  href="#product"
+                  href="/workspace"
                   className="inline-flex h-12 items-center justify-center gap-2 rounded-[5px] bg-[#d8f3df] px-5 text-sm font-semibold text-[#173d2a] transition-colors hover:bg-white"
                 >
                   See the product
                   <ArrowRight aria-hidden="true" className="size-4" />
                 </Link>
                 <Link
-                  href="#workflow"
+                  href="/workspace/returns/return-maya-2025?field=field-maya-interest"
                   className="inline-flex h-12 items-center justify-center gap-2 rounded-[5px] border border-white/35 bg-black/10 px-5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/12"
                 >
                   Follow a return
@@ -688,7 +673,7 @@ export default function Home() {
               </h2>
             </div>
             <Link
-              href="#top"
+              href="/workspace"
               className="inline-flex h-12 shrink-0 items-center justify-center gap-2 self-start rounded-[5px] bg-white px-5 text-sm font-semibold text-[#6f2830] transition-colors hover:bg-[#f5e9e9] lg:self-auto"
             >
               Explore Traceline
@@ -700,7 +685,7 @@ export default function Home() {
 
       <footer className="bg-[#121815] text-white">
         <div className="mx-auto flex max-w-[1280px] flex-col gap-6 px-5 py-8 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
-          <Brand inverse />
+          <TracelineBrand inverse />
           <p className="text-xs text-white/50">
             Prototype workspace for transparent, collaborative tax work.
           </p>
